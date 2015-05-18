@@ -34,7 +34,16 @@ def mortgage_calculation(principal, interest_rate, number_of_payments)
   return (principal * ((interest_rate * ((1 + interest_rate) **number_of_payments)) / (((1+interest_rate)**number_of_payments)-1))).round(2)
 end
 
-puts "welcome to the calculator, please select which calculator you would like to use. Type (a) for the advanced calculator, (b) for basic calculator, (c) for the bmi calculator or (d) for the mortgage calculator?"
+def trip_calc_length(distance, speed)
+  return (distance / speed)
+end
+
+# def trip_calc_cost(distance, fuel efficiency, cost per gallon, speed)
+#   return 
+# end
+
+
+puts "welcome to the calculator, please select which calculator you would like to use. Type (a) for the advanced calculator, (b) for basic calculator, (c) for the bmi calculator, (d) for the mortgage calculator or (e) for the trip calculator?"
   calculator_type = gets.chomp
 
 
@@ -112,6 +121,18 @@ puts "welcome to the calculator, please select which calculator you would like t
       puts "please enter your number of payments"
         number_of_payments = gets.to_f
           puts mortgage_calculation(principal, interest_rate, number_of_payments)
+    end
+
+    elsif calculator_type == 'e'
+      puts "please enter your total distance in miles"
+        distance = gets.to_f
+      puts "please enter your average speed in miles per hour (just the number)"
+        speed = gets.to_f
+      puts "please enter your fuel efficiency in miles per gallon (just the number"
+        fuel_efficiency = gets.to_f
+      puts "please enter the cost per gallon of the fuel that you are using in cents"
+        cost_per_gallon = gets.to_f
+          puts trip_calc_length(distance, speed)
     end
 
 
