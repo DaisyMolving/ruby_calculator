@@ -35,7 +35,7 @@ def mortgage_calculation(principal, interest_rate, number_of_payments)
 end
 
 def trip_calc_length(distance, speed)
-  return (distance / speed)
+  return (distance / speed).round(1)
 end
 
 # def trip_calc_cost(distance, fuel efficiency, cost per gallon, speed)
@@ -121,7 +121,7 @@ puts "welcome to the calculator, please select which calculator you would like t
       puts "please enter your number of payments"
         number_of_payments = gets.to_f
           puts mortgage_calculation(principal, interest_rate, number_of_payments)
-    end
+  
 
     elsif calculator_type == 'e'
       puts "please enter your total distance in miles"
@@ -132,6 +132,6 @@ puts "welcome to the calculator, please select which calculator you would like t
         fuel_efficiency = gets.to_f
       puts "please enter the cost per gallon of the fuel that you are using in cents"
         cost_per_gallon = gets.to_f
-           puts trip_calc_length(distance, speed)
+           puts "it will take #{trip_calc_length(distance, speed)} hours"
     end
 
