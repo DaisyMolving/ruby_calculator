@@ -28,19 +28,25 @@ end
 
 def bmi_numbers_imperial(weight, height)
   return ((weight / (height**2))*703).round(2)
-end 
+end
 
 def mortgage_calculation(principal, interest_rate, number_of_payments)
   return (principal * ((interest_rate * ((1 + interest_rate) **number_of_payments)) / (((1+interest_rate)**number_of_payments)-1))).round(2)
 end
 
+
 def trip_calc_length(distance, speed)
   return (distance / speed).round(1)
 end
 
-# def trip_calc_cost(distance, fuel efficiency, cost per gallon, speed)
-#   return 
-# end
+
+def trip_calc_cost(distance, speed, cost_per_gallon, fuel_efficiency)
+  # if fuel_efficiency > 60
+    return distance / (fuel_efficiency - (speed - 60) *2) * cost_per_gallon
+  # else
+  #   return distance / fuel_efficiency * cost_per_gallon
+end
+
 
 
 puts "welcome to the calculator, please select which calculator you would like to use. Type (a) for the advanced calculator, (b) for basic calculator, (c) for the bmi calculator, (d) for the mortgage calculator or (e) for the trip calculator?"
@@ -58,7 +64,7 @@ puts "welcome to the calculator, please select which calculator you would like t
           when 'p'
             puts "what is the first number?"
             first_number = gets.to_i
-            puts "to the power of which number?" 
+            puts "to the power of which number?"
             second_number = gets.to_i
               puts choose_numbers_power(first_number, second_number)
           end
@@ -71,25 +77,25 @@ puts "welcome to the calculator, please select which calculator you would like t
           when '+'
             puts "what is the first number?"
             first_number = gets.to_i
-            puts "plus which number?" 
+            puts "plus which number?"
             second_number = gets.to_i
               puts addition_numbers(first_number, second_number)
           when '-'
             puts "what is the first number?"
             first_number = gets.to_i
-            puts "minus which number?" 
+            puts "minus which number?"
             second_number = gets.to_i
               puts subtraction_numbers(first_number, second_number)
           when '*'
             puts "what is the first number?"
             first_number = gets.to_i
-            puts "times which number?" 
+            puts "times which number?"
             second_number = gets.to_i
               puts multiplication_numbers(first_number, second_number)
           when '/'
             puts "what is the first number?"
             first_number = gets.to_i
-            puts "divided by which number?" 
+            puts "divided by which number?"
             second_number = gets.to_i
               puts division_numbers(first_number, second_number)
     end
@@ -121,7 +127,7 @@ puts "welcome to the calculator, please select which calculator you would like t
       puts "please enter your number of payments"
         number_of_payments = gets.to_f
           puts mortgage_calculation(principal, interest_rate, number_of_payments)
-  
+
 
     elsif calculator_type == 'e'
       puts "please enter your total distance in miles"
@@ -132,6 +138,5 @@ puts "welcome to the calculator, please select which calculator you would like t
         fuel_efficiency = gets.to_f
       puts "please enter the cost per gallon of the fuel that you are using in cents"
         cost_per_gallon = gets.to_f
-           puts "it will take #{trip_calc_length(distance, speed)} hours"
+           puts "it will take #{trip_calc_length(distance, speed)} hours and will cost $ #{trip_calc_cost(distance, speed, cost_per_gallon, fuel_efficiency)}"
     end
-
