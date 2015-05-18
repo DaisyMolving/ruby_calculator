@@ -132,8 +132,6 @@ puts "welcome to the calculator, please select which calculator you would like t
         fuel_efficiency = gets.to_f
       puts "please enter the cost per gallon of the fuel that you are using in cents"
         cost_per_gallon = gets.to_f
-          puts trip_calc_length(distance, speed)
+           puts trip_calc_length(distance, speed)
     end
-
-
 
